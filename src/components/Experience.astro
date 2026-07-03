@@ -1,0 +1,23 @@
+---
+import SectionHeading from './SectionHeading.astro';
+import { experience } from '../data/profile';
+---
+
+<section id="experience" aria-labelledby="h-exp">
+  <SectionHeading num="02" id="h-exp" label="Experience" />
+  {experience.map((job) => (
+    <a class="card" href={job.url} target="_blank" rel="noopener">
+      <div class="when">{job.when}</div>
+      <div>
+        <h3 class="job">{job.title} <span class="arrow" aria-hidden="true">↗</span></h3>
+        <div class="org">{job.org}</div>
+        <ul class="desc">
+          {job.bulletsHtml.map((b) => <li set:html={b} />)}
+        </ul>
+        <ul class="chips">
+          {job.tech.map((t) => <li class="chip">{t}</li>)}
+        </ul>
+      </div>
+    </a>
+  ))}
+</section>

@@ -1,0 +1,115 @@
+---
+import '../styles/global.css';
+import { identity, seo } from '../data/profile';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+const { title = seo.title, description = seo.description } = Astro.props;
+const canonical = new URL(Astro.url.pathname === '/404' ? '/' : Astro.url.pathname, Astro.site);
+
+const jsonLd = JSON.stringify({
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: identity.fullName,
+  alternateName: identity.name,
+  url: identity.site,
+  email: `mailto:${identity.email}`,
+  jobTitle: 'Senior Full-Stack Software Engineer',
+  address: { '@type': 'PostalAddress', addressLocality: 'Islamabad', addressCountry: 'PK' },
+  sameAs: [identity.linkedin, identity.github]
+});
+---
+
+<!doctype html>
+<html lang="en" data-theme="dark">
+  <head>
+    <meta charset="utf-8" />
+    <title>{title}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <meta name="theme-color" content="#0a0f1e" />
+    <meta name="author" content={identity.fullName} />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={identity.site} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:site_name" content="Uzair Ashraf" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+
+    <script type="application/ld+json" set:html={jsonLd} />
+
+    <!-- Apply saved theme before first paint to avoid flash -->
+    <script is:inline>
+      try {
+        const t = localStorage.getItem('theme');
+        if (t) document.documentElement.dataset.theme = t;
+      } catch {}
+    </script>
+  </head>
+  <body>
+    <a class="skip" href="#about">Skip to content</a>
+    <div id="spot" aria-hidden="true"></div>
+    <button class="toggle" id="theme-btn" aria-label="Switch color theme" title="Switch theme">☀</button>
+    <slot />
+    <button id="top-btn" aria-label="Back to top">↑</button>
+
+    <script>
+      const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      // theme toggle (persisted)
+      const root = document.documentElement;
+      const btn = document.getElementById('theme-btn')!;
+      const paint = () => (btn.textContent = root.dataset.theme === 'dark' ? '☀' : '☾');
+      paint();
+      btn.addEventListener('click', () => {
+        root.dataset.theme = root.dataset.theme === 'dark' ? 'light' : 'dark';
+        try { localStorage.setItem('theme', root.dataset.theme); } catch {}
+        paint();
+      });
+
+      // cursor spotlight
+      const spot = document.getElementById('spot');
+      if (spot && !reduced) {
+        addEventListener('mousemove', (e) => {
+          spot.style.background = `radial-gradient(600px at ${e.clientX}px ${e.clientY}px, var(--spot), transparent 80%)`;
+        });
+      }
+
+      // typed role cycle
+      const typed = document.getElementById('typed');
+      if (typed && !reduced) {
+        const roles: string[] = JSON.parse(typed.dataset.roles || '[]');
+        let ri = 0, ci = roles[0]?.length ?? 0, del = true;
+        setInterval(() => {
+          if (del) { ci--; if (ci < 0) { del = false; ri = (ri + 1) % roles.length; ci = 0; return; } }
+          else { ci++; if (ci > roles[ri].length) { del = true; return; } }
+          typed.textContent = roles[ri].slice(0, Math.max(ci, 0));
+        }, 90);
+      }
+
+      // scroll-spy
+      const links = [...document.querySelectorAll<HTMLAnchorElement>('nav.site a')];
+      if (links.length) {
+        const obs = new IntersectionObserver(
+          (es) => es.forEach((e) => {
+            if (e.isIntersecting) links.forEach((l) => l.classList.toggle('active', l.hash === '#' + e.target.id));
+          }),
+          { rootMargin: '-40% 0px -55% 0px' }
+        );
+        document.querySelectorAll('section[id]').forEach((s) => obs.observe(s));
+      }
+
+      // back to top
+      const topBtn = document.getElementById('top-btn')!;
+      addEventListener('scroll', () => topBtn.classList.toggle('show', scrollY > 600), { passive: true });
+      topBtn.addEventListener('click', () => scrollTo({ top: 0, behavior: reduced ? 'auto' : 'smooth' }));
+    </script>
+  </body>
+</html>

@@ -1,0 +1,14 @@
+---
+import SectionHeading from './SectionHeading.astro';
+import { identity } from '../data/profile';
+---
+
+<section id="contact" aria-labelledby="h-contact">
+  <SectionHeading num="05" id="h-contact" label="Contact" />
+  <h2 class="contact-big">Let's build something hard.</h2>
+  <p class="contact-p">
+    I'm open to senior/staff engineering and lead roles in fintech and AI-enabled products —
+    USA, UK, EU (relocation + sponsorship) and Pakistan. My inbox is always open.
+  </p>
+  <a class="cta" href={`mailto:${identity.email}`}>Say Hello →</a>
+</section>

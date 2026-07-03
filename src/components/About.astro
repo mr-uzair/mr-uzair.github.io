@@ -1,0 +1,23 @@
+---
+import SectionHeading from './SectionHeading.astro';
+import { aboutHtml, trustNetworks, stats } from '../data/profile';
+---
+
+<section id="about" aria-labelledby="h-about">
+  <SectionHeading num="01" id="h-about" label="About" />
+  <div class="prose">
+    {aboutHtml.map((p) => <p set:html={p} />)}
+  </div>
+  <div class="trust" role="note" aria-label="Card networks integrated in production">
+    <span class="t-label">Integrated in production with</span>
+    {trustNetworks.map((n) => <span class="net">{n}</span>)}
+  </div>
+  <div class="stats">
+    {stats.map((s) => (
+      <div class="stat">
+        <div class="n">{s.n}</div>
+        <div class="l">{s.label}</div>
+      </div>
+    ))}
+  </div>
+</section>

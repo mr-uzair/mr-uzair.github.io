@@ -1,0 +1,25 @@
+---
+import SectionHeading from './SectionHeading.astro';
+import { projects } from '../data/profile';
+---
+
+<section id="projects" aria-labelledby="h-proj">
+  <SectionHeading num="03" id="h-proj" label="Featured Projects" />
+  {projects.map((p) => {
+    const inner = (
+      <div>
+        <div class="ptitle">
+          <h3 class="job">{p.name} {p.url && <span class="arrow" aria-hidden="true">↗</span>}</h3>
+          <span class="badge">{p.badge}</span>
+        </div>
+        <p class="pdesc" set:html={p.descriptionHtml} />
+        <ul class="chips">
+          {p.tech.map((t) => <li class="chip">{t}</li>)}
+        </ul>
+      </div>
+    );
+    return p.url
+      ? <a class="card pcard" href={p.url} target="_blank" rel="noopener">{inner}</a>
+      : <div class="card pcard">{inner}</div>;
+  })}
+</section>

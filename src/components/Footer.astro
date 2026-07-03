@@ -1,0 +1,9 @@
+---
+import { identity } from '../data/profile';
+const year = new Date().getFullYear();
+---
+
+<footer>
+  Designed &amp; built by {identity.name} ·
+  <a href={identity.repo} target="_blank" rel="noopener">Source on GitHub</a> · © {year}
+</footer>

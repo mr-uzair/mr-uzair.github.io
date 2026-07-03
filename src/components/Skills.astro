@@ -1,0 +1,16 @@
+---
+import SectionHeading from './SectionHeading.astro';
+import { skillGroups } from '../data/profile';
+---
+
+<section id="skills" aria-labelledby="h-skills">
+  <SectionHeading num="04" id="h-skills" label="Skills" />
+  <div class="skill-grid">
+    {skillGroups.map((g) => (
+      <div class={`skill${g.wide ? ' wide' : ''}`}>
+        <h3>{g.title}</h3>
+        <p>{g.body}</p>
+      </div>
+    ))}
+  </div>
+</section>

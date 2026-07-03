@@ -1,0 +1,10 @@
+---
+interface Props {
+  num: string;
+  id: string;
+  label: string;
+}
+const { num, id, label } = Astro.props;
+---
+
+<h2 class="sec-h" id={id}><span class="num">{num}.</span> {label}</h2>
