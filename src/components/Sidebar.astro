@@ -1,9 +1,18 @@
 ---
 import { identity, sections } from '../data/profile';
+
+// Avatar renders automatically once src/images/headshot.{jpg,png,webp} exists.
+const headshots = import.meta.glob('../images/headshot.{jpg,png,webp}', {
+  eager: true,
+  query: '?url',
+  import: 'default'
+});
+const headshot = Object.values(headshots)[0] as string | undefined;
 ---
 
 <header class="left">
   <div>
+    {headshot && <img class="avatar" src={headshot} alt={`${identity.fullName} — headshot`} width="96" height="96" />}
     <h1>{identity.name}</h1>
     <p class="role" aria-label={identity.roles.join(', ')}>
       <span id="typed" data-roles={JSON.stringify(identity.roles)}>{identity.roles[0]}</span><span class="cursor" aria-hidden="true">|</span>

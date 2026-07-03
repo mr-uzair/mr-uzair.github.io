@@ -32,7 +32,7 @@ export const seo = {
 
 export const aboutHtml = [
   'I\'m a <b>Senior Full-Stack Software Engineer and Team Lead</b> with <span class="hl">9+ years</span> building fintech and enterprise products end-to-end — .NET backends, Angular/React front ends, and the Azure DevOps pipelines that ship them.',
-  'Most of my work lives in <b>payments</b>: card-issuing wallets and transaction-acquiring engines used across Latin America, built and operated in <span class="hl">PCI DSS–scoped environments</span>. I lean on Clean Architecture and Domain-Driven Design to keep complex financial systems maintainable as they scale.',
+  'Most of my work lives in <b>payments</b>: card-issuing wallets and transaction-acquiring engines processing <span class="hl">1M+ transactions a day</span> across Latin America, built and operated in <span class="hl">PCI DSS–scoped environments</span>. I lean on Clean Architecture and Domain-Driven Design to keep complex financial systems maintainable as they scale.',
   'Right now I\'m focused on bringing <span class="hl">AI/LLM capabilities into production apps</span> and modernizing on the latest .NET. Open to senior/staff and engineering-lead roles — USA, UK, EU (relocation + sponsorship) and Pakistan.'
 ];
 
@@ -40,6 +40,7 @@ export const trustNetworks = ['MASTERCARD', 'VISA', 'AMEX', 'CLAVE'];
 
 export const stats = [
   { n: '9+', label: 'Years Experience' },
+  { n: '1M+', label: 'Transactions Processed / Day' },
   { n: '10+', label: 'Years in Production (NeoGateway)' },
   { n: '1,000+', label: 'Stores on Wa! QR Network' }
 ];
@@ -57,10 +58,10 @@ export const experience: Experience[] = [
   {
     when: '2019 — Present',
     title: 'Senior Full-Stack Engineer · Team Lead',
-    org: 'CROEM (Pvt.) Ltd. — Fintech · Islamabad',
+    org: 'CROEM (Pvt.) Ltd. — Fintech (~100 employees) · Islamabad',
     url: 'https://croeminc.com/',
     bulletsHtml: [
-      'Lead a development team across architecture, code review, CI/CD and real-time production support for financial products.',
+      'Lead a development team across architecture, code review, CI/CD and real-time production support for payment platforms processing <span class="m">1M+ transactions a day</span>.',
       'Led a transaction-processing initiative that cut processing time <span class="m">~20%</span>, improving system efficiency and client satisfaction.',
       'Designed Clean Architecture / DDD / modular-monolith systems for card issuing and payment acquiring across LATAM.',
       'Build and operate card-issuing and acquiring platforms in <span class="m">PCI DSS</span>–scoped environments — secure card-data handling and compliance-aware engineering across the stack.'
