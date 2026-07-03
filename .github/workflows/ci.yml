@@ -1,0 +1,37 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches-ignore: [main, gh-pages]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install
+        run: npm ci
+
+      - name: Build
+        run: npm run build
+
+      - name: Quality gate — content, SEO and assets must be intact
+        run: |
+          test -f dist/CNAME || (echo "CNAME missing — custom domain would break" && exit 1)
+          test -f dist/assets/UzairCV.pdf || (echo "Resume PDF missing" && exit 1)
+          grep -q "9+ years" dist/index.html || (echo "Core content missing from HTML" && exit 1)
+          grep -q 'meta name="description"' dist/index.html || (echo "Meta description missing" && exit 1)
+          grep -q 'application/ld+json' dist/index.html || (echo "JSON-LD missing" && exit 1)
+
+      - name: Payload budget — index.html must stay under 50 KB
+        run: |
+          SIZE=$(stat -c%s dist/index.html)
+          echo "index.html: ${SIZE} bytes"
+          test "$SIZE" -lt 51200 || (echo "Payload budget exceeded (${SIZE} > 51200)" && exit 1)
