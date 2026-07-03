@@ -1,27 +1,50 @@
-# PortfolioWebsite
+# uzairashraf.com
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.8.
+Personal portfolio of **Hafiz Uzair Ashraf** — Senior Full-Stack Software Engineer, AI Engineer & Team Lead.
 
-## Development server
+Live at **[uzairashraf.com](https://uzairashraf.com)** · deployed automatically to GitHub Pages on every push to `main`.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## Stack
 
-## Code scaffolding
+- [Astro 5](https://astro.build) — static output, zero framework JS shipped
+- Hand-rolled CSS design system (dual dark/light theme via CSS custom properties)
+- GitHub Actions → GitHub Pages (workflow deploy, no committed build output)
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+The whole page ships as a single ~21 KB HTML file (styles and interactions inlined).
 
-## Build
+## Architecture
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+```
+src/
+  data/profile.ts     ← ALL site content lives here (single source of truth)
+  layouts/Layout.astro  ← head/SEO/JSON-LD, theme init, global interactions
+  components/           ← Sidebar, About, Experience, Projects, Skills, Contact, Footer
+  pages/index.astro     ← composition only
+  pages/404.astro
+  styles/global.css     ← design tokens + all styling
+public/               ← CNAME, favicon, robots.txt, sitemap.xml, resume PDF
+```
 
-## Running unit tests
+**Content rule:** `src/data/profile.ts` derives from the master resume
+(career-assets workspace, `resume/master.md`). Never add a metric or claim here
+that the master resume does not contain.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## Development
 
-## Running end-to-end tests
+```bash
+npm install
+npm run dev       # dev server on :4321
+npm run build     # static build → dist/
+npm run preview   # serve the built site
+```
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+## Deployment
 
-## Further help
+Push to `main` → `.github/workflows/deploy.yml` builds, runs quality gates
+(CNAME present, resume PDF present, core content and SEO tags in HTML), and
+deploys to GitHub Pages. The custom domain is configured via `public/CNAME`.
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+**Rollback:** the pre-redesign Angular site is preserved at tag `v1-angular`
+(source) and on the `gh-pages` branch history (built output).
+
+See [MAINTAINERS-PLAYBOOK.md](MAINTAINERS-PLAYBOOK.md) for the full update workflow.
