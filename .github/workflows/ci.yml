@@ -3,7 +3,7 @@ name: CI
 on:
   pull_request:
   push:
-    branches-ignore: [main, gh-pages]
+    branches-ignore: [master, main, gh-pages]
 
 jobs:
   build:

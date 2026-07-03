@@ -28,7 +28,7 @@ AI assistant maintaining the site.
 | Change SEO copy | `seo` object in `profile.ts` |
 
 Then: `npm run build` locally, sanity-check `dist/index.html`, push a branch,
-let CI pass, merge to `main`. The deploy workflow ships it.
+let CI pass, merge to `master` (the default branch). The deploy workflow ships it.
 
 ## Quality bars (check before merging)
 
@@ -41,9 +41,9 @@ let CI pass, merge to `main`. The deploy workflow ships it.
 
 ## Deploy & rollback
 
-- **Deploy:** automatic on push to `main` (`deploy.yml`). Verify at
+- **Deploy:** automatic on push to `master` (`deploy.yml`). Verify at
   https://uzairashraf.com after the workflow completes (hard refresh).
-- **Rollback (bad content):** `git revert` the commit on `main`; the workflow
+- **Rollback (bad content):** `git revert` the commit on `master`; the workflow
   redeploys the previous state.
 - **Rollback (catastrophic):** repo Settings → Pages → set Source back to
   "Deploy from a branch" → `gh-pages`. That serves the pre-redesign Angular
@@ -60,6 +60,9 @@ let CI pass, merge to `main`. The deploy workflow ships it.
 
 ## Known context
 
+- `master` is the default/deploy branch. The old `main` branch is locked
+  (read-only) in branch protection and retired — the pre-redesign Angular
+  source lives there and at tag `v1-angular`.
 - The `rewamp` branch holds the old Angular 19 WIP (preserved, superseded).
 - The `gh-pages` branch is dead weight after the workflow-deploy switch; keep
   it as rollback until confident, then delete.

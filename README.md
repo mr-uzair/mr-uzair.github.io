@@ -2,7 +2,7 @@
 
 Personal portfolio of **Hafiz Uzair Ashraf** — Senior Full-Stack Software Engineer, AI Engineer & Team Lead.
 
-Live at **[uzairashraf.com](https://uzairashraf.com)** · deployed automatically to GitHub Pages on every push to `main`.
+Live at **[uzairashraf.com](https://uzairashraf.com)** · deployed automatically to GitHub Pages on every push to `master` (default branch).
 
 ## Stack
 
@@ -40,7 +40,7 @@ npm run preview   # serve the built site
 
 ## Deployment
 
-Push to `main` → `.github/workflows/deploy.yml` builds, runs quality gates
+Push to `master` → `.github/workflows/deploy.yml` builds, runs quality gates
 (CNAME present, resume PDF present, core content and SEO tags in HTML), and
 deploys to GitHub Pages. The custom domain is configured via `public/CNAME`.
 
