@@ -32,7 +32,7 @@ export const seo = {
 
 export const aboutHtml = [
   'I\'m a <b>Senior Full-Stack Software Engineer and Team Lead</b> with <span class="hl">9+ years</span> building fintech and enterprise products end-to-end — .NET backends, Angular/React front ends, and the Azure DevOps pipelines that ship them.',
-  'Most of my work lives in <b>payments</b>: card-issuing wallets and transaction-acquiring engines used across Latin America. I lean on Clean Architecture and Domain-Driven Design to keep complex financial systems maintainable as they scale.',
+  'Most of my work lives in <b>payments</b>: card-issuing wallets and transaction-acquiring engines used across Latin America, built and operated in <span class="hl">PCI DSS–scoped environments</span>. I lean on Clean Architecture and Domain-Driven Design to keep complex financial systems maintainable as they scale.',
   'Right now I\'m focused on bringing <span class="hl">AI/LLM capabilities into production apps</span> and modernizing on the latest .NET. Open to senior/staff and engineering-lead roles — USA, UK, EU (relocation + sponsorship) and Pakistan.'
 ];
 
@@ -62,7 +62,8 @@ export const experience: Experience[] = [
     bulletsHtml: [
       'Lead a development team across architecture, code review, CI/CD and real-time production support for financial products.',
       'Led a transaction-processing initiative that cut processing time <span class="m">~20%</span>, improving system efficiency and client satisfaction.',
-      'Designed Clean Architecture / DDD / modular-monolith systems for card issuing and payment acquiring across LATAM.'
+      'Designed Clean Architecture / DDD / modular-monolith systems for card issuing and payment acquiring across LATAM.',
+      'Build and operate card-issuing and acquiring platforms in <span class="m">PCI DSS</span>–scoped environments — secure card-data handling and compliance-aware engineering across the stack.'
     ],
     tech: ['.NET 8', 'Angular', 'React', 'DDD', 'Azure DevOps', 'SQL Server']
   },
@@ -125,7 +126,81 @@ export const skillGroups = [
   { title: 'Frontend', body: 'Angular · React · React Native · Ionic · TypeScript · Bootstrap', wide: false },
   { title: 'Architecture', body: 'Clean Architecture · Domain-Driven Design · Modular Monolith · Microservices · REST', wide: false },
   { title: 'Data & DevOps', body: 'SQL Server · MongoDB · Azure DevOps CI/CD · Git · Production support', wide: false },
-  { title: 'AI Engineering ▲ growing', body: 'LLM / RAG integration · AI-assisted development · Claude & OpenAI APIs · agentic workflows · .NET Aspire', wide: true }
+  { title: 'Payments & Compliance', body: 'PCI DSS–scoped engineering · secure card-data handling · card-network integrations (Mastercard, VISA, AMEX, CLAVE) · transaction processing, clearing & settlement', wide: false },
+  { title: 'AI Engineering ▲ growing', body: 'LLM / RAG integration · AI-assisted development · Claude & OpenAI APIs · agentic workflows · .NET Aspire', wide: false }
+];
+
+export interface ArchiveProject {
+  year: string;
+  name: string;
+  description: string;
+  url?: string;
+  tech: string[];
+}
+
+/** Full project archive (restored from the original portfolio's /projects page). */
+export const archiveProjects: ArchiveProject[] = [
+  {
+    year: '2022',
+    name: 'NFT Market Place',
+    description:
+      'Revenue-generating engagement platform with QR-code offline marketing, live chat / call / livestream support, and user analytics.',
+    tech: ['.NET Core 8 API', 'DDD / ABP.IO', 'EF / Dapper / SignalR', 'Ionic-Angular', 'React', 'SQL Server', 'Azure DevOps']
+  },
+  {
+    year: '2022',
+    name: 'go NDA',
+    description:
+      'Mobile platform for automated legal templates with real-time execution — NDAs generated and signed on the go.',
+    url: 'https://www.getgonda.com/',
+    tech: ['React Native', 'TypeScript']
+  },
+  {
+    year: '2021',
+    name: 'Azhealth24',
+    description:
+      'Hybrid cross-platform healthcare application delivering services across web, iOS and Android.',
+    tech: ['.NET Core 3.1 API', 'DDD', 'EF / LINQ', 'Ionic-Angular', 'GitLab', 'SQL Server']
+  },
+  {
+    year: '2020',
+    name: 'Fourlead',
+    description:
+      'Malaysian job portal with a behaviour-assessment engine for better candidate–employer matching.',
+    tech: ['.NET Core 3.1 API', 'DDD', 'EF / LINQ', 'Angular', 'Docker', 'SQL Server']
+  },
+  {
+    year: '2020',
+    name: 'Sahulat Services',
+    description: 'On-demand handyman services app.',
+    tech: ['.NET Core 3.1 API', 'DDD', 'EF / LINQ', 'Angular', 'Azure DevOps', 'SQL Server']
+  },
+  {
+    year: '2019',
+    name: 'Fox Rehabilitation',
+    description:
+      'Healthcare web platform for patient–clinician interaction, appointment scheduling and home-based care.',
+    tech: ['.NET Core 3.1 API', 'DDD', 'EF / LINQ', 'Angular', 'Azure DevOps', 'SQL Server']
+  },
+  {
+    year: '2018',
+    name: 'School ERP Solutions',
+    description: 'ezSCHOOL-ERP — school and college management software.',
+    url: 'http://www.ezschoolerp.com/',
+    tech: ['ASP.NET MVC 5', 'EF / LINQ', 'Oracle', 'TFS']
+  },
+  {
+    year: '2018',
+    name: 'Franchise Management System',
+    description: 'Bird\'s-eye operational view of all franchises for top management.',
+    tech: ['ASP.NET MVC 5', 'EF / LINQ', 'SQL Server', 'TFS']
+  },
+  {
+    year: '2017',
+    name: 'Multivendor E-Commerce Platform',
+    description: 'Marketplace for buying and selling new and used mobile devices online.',
+    tech: ['ASP.NET MVC 5', 'ASP.NET Identity', 'EF / LINQ', 'SQL Server']
+  }
 ];
 
 export const sections = [
