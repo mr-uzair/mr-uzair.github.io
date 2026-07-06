@@ -8,10 +8,10 @@ export const identity = {
   name: 'Uzair Ashraf',
   fullName: 'Hafiz Uzair Ashraf',
   roles: [
-    'Senior Full-Stack Engineer',
+    'Software Architect',
     'AI / LLM Engineer',
-    'Fintech Team Lead',
-    'DevOps & Platform Engineer'
+    'Senior Full-Stack Engineer',
+    'Fintech Team Lead'
   ],
   taglineHtml:
     'I build <b>fintech &amp; payment platforms</b> end-to-end — and I\'m bringing <b>AI/LLM capabilities</b> into production software.',
@@ -25,13 +25,13 @@ export const identity = {
 };
 
 export const seo = {
-  title: 'Uzair Ashraf — Senior Full-Stack & AI Engineer | .NET, Fintech, Payments',
+  title: 'Uzair Ashraf — Software Architect & AI Engineer | .NET, Fintech, Payments',
   description:
-    'Hafiz Uzair Ashraf — Senior Full-Stack Software Engineer & Team Lead. 9+ years building fintech, payments and AI-enabled products with .NET, Angular/React and Azure DevOps. Integrated with Mastercard, VISA, AMEX & CLAVE.'
+    'Hafiz Uzair Ashraf — Software Architect & AI Engineer. 9+ years building fintech, payments and AI-enabled products with .NET, Angular/React and Azure. PCI DSS–scoped platforms processing 1M+ transactions/day, integrated with Mastercard, VISA, AMEX & CLAVE.'
 };
 
 export const aboutHtml = [
-  'I\'m a <b>Senior Full-Stack Software Engineer and Team Lead</b> with <span class="hl">9+ years</span> building fintech and enterprise products end-to-end — .NET backends, Angular/React front ends, and the Azure DevOps pipelines that ship them.',
+  'I\'m a <b>Software Architect and Senior Full-Stack Engineer</b> with <span class="hl">9+ years</span> building fintech and enterprise products end-to-end — .NET backends, Angular/React front ends, and the Azure DevOps pipelines that ship them. Team Lead from 2019; architect since 2024.',
   'Most of my work lives in <b>payments</b>: card-issuing wallets and transaction-acquiring engines processing <span class="hl">1M+ transactions a day</span> across Latin America, built and operated in <span class="hl">PCI DSS–scoped environments</span>. I lean on Clean Architecture and Domain-Driven Design to keep complex financial systems maintainable as they scale.',
   'Right now I\'m focused on bringing <span class="hl">AI/LLM capabilities into production apps</span> and modernizing on the latest .NET. Open to senior/staff and engineering-lead roles — USA, UK, EU (relocation + sponsorship) and Pakistan.'
 ];
@@ -56,17 +56,28 @@ export interface Experience {
 
 export const experience: Experience[] = [
   {
-    when: '2019 — Present',
-    title: 'Senior Full-Stack Engineer · Team Lead',
+    when: '2024 — Present',
+    title: 'Software Architect',
     org: 'CROEM (Pvt.) Ltd. — Fintech (~100 employees) · Islamabad',
     url: 'https://croeminc.com/',
     bulletsHtml: [
-      'Lead a development team across architecture, code review, CI/CD and real-time production support for payment platforms processing <span class="m">1M+ transactions a day</span>.',
-      'Led a transaction-processing initiative that cut processing time <span class="m">~20%</span>, improving system efficiency and client satisfaction.',
-      'Designed Clean Architecture / DDD / modular-monolith systems for card issuing and payment acquiring across LATAM.',
-      'Build and operate card-issuing and acquiring platforms in <span class="m">PCI DSS</span>–scoped environments — secure card-data handling and compliance-aware engineering across the stack.'
+      'Lead architecture and technical strategy for payment platforms processing <span class="m">1M+ transactions a day</span> — microservices, event-driven systems (Azure Service Bus, RabbitMQ, Kafka), CQRS and DDD.',
+      'Integrate AI/LLM capabilities into production systems: RAG pipelines, AI chatbots and agent workflows on Azure OpenAI, Claude and Semantic Kernel / LangChain.',
+      'Own technical decision-making — technology selection, coding standards, architecture reviews and Azure DevOps CI/CD design — in <span class="m">PCI DSS</span>–scoped environments.'
     ],
-    tech: ['.NET 8', 'Angular', 'React', 'DDD', 'Azure DevOps', 'SQL Server']
+    tech: ['.NET 8', 'Azure', 'AI / LLM', 'Kafka', 'CQRS / DDD', 'Azure DevOps']
+  },
+  {
+    when: '2019 — 2023',
+    title: 'Senior Full-Stack Engineer · Team Lead',
+    org: 'CROEM (Pvt.) Ltd. — Fintech · Islamabad',
+    url: 'https://croeminc.com/',
+    bulletsHtml: [
+      'Led a development team across code review, CI/CD and real-time production support for card-issuing and acquiring platforms across LATAM.',
+      'Led a transaction-processing initiative that cut processing time <span class="m">~20%</span>, improving system efficiency and client satisfaction.',
+      'Built secure, compliance-aware financial systems with Clean Architecture / DDD / modular-monolith patterns.'
+    ],
+    tech: ['.NET', 'Angular', 'React', 'DDD', 'SQL Server']
   },
   {
     when: '2017 — 2019',
