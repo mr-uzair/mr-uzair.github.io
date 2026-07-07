@@ -11,7 +11,7 @@ export const identity = {
     'Software Architect',
     'AI / LLM Engineer',
     'Senior Full-Stack Engineer',
-    'Fintech Team Lead'
+    'Fintech & Payments Specialist'
   ],
   taglineHtml:
     'I build <b>fintech &amp; payment platforms</b> end-to-end — and I\'m bringing <b>AI/LLM capabilities</b> into production software.',
@@ -157,7 +157,7 @@ export const archiveProjects: ArchiveProject[] = [
     name: 'NFT Market Place',
     description:
       'Revenue-generating engagement platform with QR-code offline marketing, live chat / call / livestream support, and user analytics.',
-    tech: ['.NET Core 8 API', 'DDD / ABP.IO', 'EF / Dapper / SignalR', 'Ionic-Angular', 'React', 'SQL Server', 'Azure DevOps']
+    tech: ['.NET Core API', 'DDD / ABP.IO', 'EF / Dapper / SignalR', 'Ionic-Angular', 'React', 'SQL Server', 'Azure DevOps']
   },
   {
     year: '2022',
