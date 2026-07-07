@@ -80,7 +80,7 @@ export const experience: Experience[] = [
     tech: ['.NET', 'Angular', 'React', 'DDD', 'SQL Server']
   },
   {
-    when: '2017 — 2019',
+    when: '2017 — 2018',
     title: 'Full-Stack Software Engineer',
     org: 'FUTURESOL — Islamabad',
     url: 'https://www.futuresol.net/',
