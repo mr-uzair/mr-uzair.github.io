@@ -17,7 +17,15 @@ const jsonLd = JSON.stringify({
   url: identity.site,
   email: `mailto:${identity.email}`,
   jobTitle: 'Software Architect',
+  description: seo.description,
   address: { '@type': 'PostalAddress', addressLocality: 'Islamabad', addressCountry: 'PK' },
+  worksFor: { '@type': 'Organization', name: 'CROEM (Pvt.) Ltd.', url: 'https://croeminc.com/' },
+  alumniOf: { '@type': 'CollegeOrUniversity', name: 'University of the Punjab' },
+  knowsAbout: [
+    'Software Architecture', '.NET', 'Azure', 'PCI DSS', 'Card Issuing',
+    'Payment Acquiring', 'Domain-Driven Design', 'AI/LLM Engineering',
+    'RAG Pipelines', 'Angular', 'React'
+  ],
   sameAs: [identity.linkedin, identity.github]
 });
 ---

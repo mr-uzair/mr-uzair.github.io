@@ -165,6 +165,21 @@ a.card { cursor: pointer; }
   background: var(--accent); border-radius: 4px; padding: 2px 8px; white-space: nowrap;
 }
 
+.case-study { margin-top: 16px; border-top: 1px solid var(--border); padding-top: 14px; }
+.case-study summary {
+  cursor: pointer; font-family: var(--mono); font-size: 12px; color: var(--accent);
+  letter-spacing: 0.05em; list-style: none; user-select: none;
+}
+.case-study summary::-webkit-details-marker { display: none; }
+.case-study[open] summary { margin-bottom: 12px; }
+.cs-block { margin-top: 12px; }
+.cs-block:first-of-type { margin-top: 0; }
+.cs-label {
+  display: block; font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.14em;
+  text-transform: uppercase; color: var(--dim); margin-bottom: 4px;
+}
+.cs-block p { font-size: 13.5px; color: var(--dim); margin: 0; }
+
 /* ---------- skills ---------- */
 .skill-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
 .skill { background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 16px 18px; }

@@ -5,23 +5,30 @@ import { projects } from '../data/profile';
 
 <section id="projects" aria-labelledby="h-proj">
   <SectionHeading num="03" id="h-proj" label="Featured Projects" />
-  {projects.map((p) => {
-    const inner = (
-      <div>
-        <div class="ptitle">
-          <h3 class="job">{p.name} {p.url && <span class="arrow" aria-hidden="true">↗</span>}</h3>
-          <span class="badge">{p.badge}</span>
-        </div>
-        <p class="pdesc" set:html={p.descriptionHtml} />
-        <ul class="chips">
-          {p.tech.map((t) => <li class="chip">{t}</li>)}
-        </ul>
+  {projects.map((p) => (
+    <div class="card pcard">
+      <div class="ptitle">
+        <h3 class="job">
+          {p.url
+            ? <a href={p.url} target="_blank" rel="noopener">{p.name} <span class="arrow" aria-hidden="true">↗</span></a>
+            : p.name}
+        </h3>
+        <span class="badge">{p.badge}</span>
       </div>
-    );
-    return p.url
-      ? <a class="card pcard" href={p.url} target="_blank" rel="noopener">{inner}</a>
-      : <div class="card pcard">{inner}</div>;
-  })}
+      <p class="pdesc" set:html={p.descriptionHtml} />
+      <ul class="chips">
+        {p.tech.map((t) => <li class="chip">{t}</li>)}
+      </ul>
+      {p.caseStudyHtml && (
+        <details class="case-study">
+          <summary>How it's built ▾</summary>
+          <div class="cs-block"><span class="cs-label">Problem</span><p set:html={p.caseStudyHtml.problem} /></div>
+          <div class="cs-block"><span class="cs-label">Architecture</span><p set:html={p.caseStudyHtml.architecture} /></div>
+          <div class="cs-block"><span class="cs-label">Outcome</span><p set:html={p.caseStudyHtml.outcome} /></div>
+        </details>
+      )}
+    </div>
+  ))}
   <p style="text-align:center;margin-top:24px">
     <a href="/projects" class="btn">View the full project archive →</a>
   </p>

@@ -98,6 +98,7 @@ export interface Project {
   url?: string;
   descriptionHtml: string;
   tech: string[];
+  caseStudyHtml?: { problem: string; architecture: string; outcome: string };
 }
 
 export const projects: Project[] = [
@@ -107,14 +108,30 @@ export const projects: Project[] = [
     url: 'https://daimvirtual.com/',
     descriptionHtml:
       'All-in-one wallet and prepaid card-issuing platform: benefits reception, savings accounts, bill pay, and QR withdrawals at <span class="m">1,000+ stores</span>. Live at daimvirtual.com.',
-    tech: ['.NET 8 API', 'ABP.IO / DDD', 'SignalR', 'Ionic-Angular', 'React']
+    tech: ['.NET 8 API', 'ABP.IO / DDD', 'SignalR', 'Ionic-Angular', 'React'],
+    caseStudyHtml: {
+      problem:
+        'Panama\'s unbanked and underbanked population needed a single mobile app to receive benefits, hold a prepaid balance and pay/withdraw cash — without a traditional bank account, and without card data ever touching an insecure surface.',
+      architecture:
+        'Modular-monolith .NET 8 API on ABP.IO / DDD, so card-issuing, wallet-ledger and merchant-QR modules evolve independently while sharing one PCI DSS–scoped deployment boundary. SignalR pushes real-time balance and transaction-status updates to the Ionic-Angular and React clients — no polling, so 1,000+ merchant terminals stay responsive under load.',
+      outcome:
+        'Live in production with QR withdrawals accepted at <span class="m">1,000+ stores</span> across Panama.'
+    }
   },
   {
     name: 'NeoGateway',
     badge: 'PAYMENT GATEWAY · USA',
     descriptionHtml:
       'Transaction-acquiring engine (eCommerce, POS, IVR, SDK, API) integrated directly with <span class="m">Mastercard, VISA, AMEX, CLAVE</span> — 10+ years in production across Latin America, covering processing through clearing and settlement.',
-    tech: ['.NET Core', 'DDD / MVVM', 'Angular', 'SQL Server']
+    tech: ['.NET Core', 'DDD / MVVM', 'Angular', 'SQL Server'],
+    caseStudyHtml: {
+      problem:
+        'Merchants across Latin America needed one acquiring engine that could take a card transaction from any channel — web checkout, point of sale, IVR phone payment, or a partner\'s own app via SDK — through to settlement, without each network integration becoming a bespoke one-off.',
+      architecture:
+        'DDD-modeled acquiring core behind a single API surface, with channel-specific adapters (eCommerce, POS, IVR, SDK) translating into one canonical transaction domain. Direct network integrations to Mastercard, VISA, AMEX and CLAVE keep routing and reconciliation logic centralized instead of duplicated per channel — the reason the same core has stayed in production for over a decade through .NET Framework 4 → .NET Core 3.1 migrations.',
+      outcome:
+        '<span class="m">10+ years</span> in continuous production across Latin America, covering the full path from processing to clearing and settlement.'
+    }
   },
   {
     name: 'MiCedulad',
