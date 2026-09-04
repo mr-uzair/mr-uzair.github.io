@@ -232,10 +232,49 @@ export const archiveProjects: ArchiveProject[] = [
   }
 ];
 
+export interface Certification {
+  /** Course name exactly as the issuer's verification page spells it. */
+  name: string;
+  issuer: string;
+  issued: string;
+  /** Public verification page. Every entry must have one. */
+  credentialUrl: string;
+}
+
+/**
+ * Certifications.
+ *
+ * Sourced from the issuer's own verification pages (verify.skilljar.com), not
+ * from a CV or a screenshot — each URL below was fetched and confirmed to name
+ * Uzair Ashraf and the course. Never add an entry without a working
+ * `credentialUrl`; an unverifiable credential is worse than a missing one.
+ */
+export const certifications: Certification[] = [
+  {
+    name: 'Claude Code 101',
+    issuer: 'Anthropic Education',
+    issued: 'Aug 2026',
+    credentialUrl: 'https://verify.skilljar.com/c/d2mqjvjavhoi'
+  },
+  {
+    name: 'Introduction to subagents',
+    issuer: 'Anthropic Education',
+    issued: 'Aug 2026',
+    credentialUrl: 'https://verify.skilljar.com/c/7suhjdne4hrs'
+  },
+  {
+    name: 'Introduction to agent skills',
+    issuer: 'Anthropic Education',
+    issued: 'Aug 2026',
+    credentialUrl: 'https://verify.skilljar.com/c/wryuubgg3uq7'
+  }
+];
+
 export const sections = [
   { id: 'about', label: 'About' },
   { id: 'experience', label: 'Experience' },
   { id: 'projects', label: 'Projects' },
   { id: 'skills', label: 'Skills' },
+  { id: 'certifications', label: 'Certifications' },
   { id: 'contact', label: 'Contact' }
 ];

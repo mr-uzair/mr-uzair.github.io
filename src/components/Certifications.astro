@@ -1,0 +1,17 @@
+---
+import SectionHeading from './SectionHeading.astro';
+import { certifications } from '../data/profile';
+---
+
+<section id="certifications" aria-labelledby="h-certs">
+  <SectionHeading num="05" id="h-certs" label="Certifications" />
+  <div class="skill-grid">
+    {certifications.map((c) => (
+      <a class="skill cert" href={c.credentialUrl} target="_blank" rel="noopener">
+        <h3>{c.issuer}</h3>
+        <p class="cert-name">{c.name}</p>
+        <p class="cert-meta">{c.issued} <span class="cert-verify">Verify ↗</span></p>
+      </a>
+    ))}
+  </div>
+</section>

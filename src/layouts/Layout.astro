@@ -1,6 +1,6 @@
 ---
 import '../styles/global.css';
-import { identity, seo } from '../data/profile';
+import { identity, seo, certifications } from '../data/profile';
 
 interface Props {
   title?: string;
@@ -21,6 +21,13 @@ const jsonLd = JSON.stringify({
   address: { '@type': 'PostalAddress', addressLocality: 'Islamabad', addressCountry: 'PK' },
   worksFor: { '@type': 'Organization', name: 'CROEM (Pvt.) Ltd.', url: 'https://croeminc.com/' },
   alumniOf: { '@type': 'CollegeOrUniversity', name: 'University of the Punjab' },
+  hasCredential: certifications.map((c) => ({
+    '@type': 'EducationalOccupationalCredential',
+    name: c.name,
+    credentialCategory: 'certificate',
+    recognizedBy: { '@type': 'Organization', name: c.issuer },
+    url: c.credentialUrl
+  })),
   knowsAbout: [
     'Software Architecture', '.NET', 'Azure', 'PCI DSS', 'Card Issuing',
     'Payment Acquiring', 'Domain-Driven Design', 'AI/LLM Engineering',
