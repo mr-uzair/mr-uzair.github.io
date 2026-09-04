@@ -18,6 +18,7 @@ const headshot = Object.values(headshots)[0] as string | undefined;
       <span id="typed" data-roles={JSON.stringify(identity.roles)}>{identity.roles[0]}</span><span class="cursor" aria-hidden="true">|</span>
     </p>
     <p class="tagline" set:html={identity.taglineHtml} />
+    <p class="locale">{identity.location} · UTC+5</p>
     <nav class="site" aria-label="Section navigation">
       {sections.map((s, i) => (
         <a href={`#${s.id}`} class={i === 0 ? 'active' : ''}><span class="ln"></span>{s.label}</a>
