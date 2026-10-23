@@ -62,10 +62,12 @@ export const experience: Experience[] = [
     url: 'https://croeminc.com/',
     bulletsHtml: [
       'Lead architecture and technical strategy for payment platforms processing <span class="m">1M+ transactions a day</span> — microservices, event-driven systems (Azure Service Bus, RabbitMQ, Kafka), CQRS and DDD.',
+      'Supervise AI coding agents delivering a full rebuild of the payment-platform core: the agents prepare changes, I run the CI-equivalent gates and decide what ships — organised as conformance waves against a design specification, with money-movement features gated behind finance and security sign-off.',
       'Integrate AI/LLM capabilities into production systems: RAG pipelines, AI chatbots and agent workflows on Azure OpenAI, Claude and Semantic Kernel / LangChain.',
+      'Own the delivery process end to end — branch model, automated review policy with weekly reviewer audits, handoff documentation, and a bilingual PMO control tool for the partner delivery programme.',
       'Own technical decision-making — technology selection, coding standards, architecture reviews and Azure DevOps CI/CD design — in <span class="m">PCI DSS</span>–scoped environments.'
     ],
-    tech: ['.NET 8', 'Azure', 'AI / LLM', 'Kafka', 'CQRS / DDD', 'Azure DevOps']
+    tech: ['.NET 8', 'Azure', 'AI agent supervision', 'Kafka', 'CQRS / DDD', 'Azure DevOps']
   },
   {
     when: '2019 — 2023',
@@ -102,6 +104,21 @@ export interface Project {
 }
 
 export const projects: Project[] = [
+  {
+    name: 'NeoCore V2',
+    badge: 'PLATFORM REBUILD · AI-SUPERVISED',
+    descriptionHtml:
+      'Full rebuild of the company\'s payment-platform core — gateway, card issuing and acquiring — delivered by <span class="m">AI coding agents under my supervision</span>, with the design project as the single source of truth and an automated design-vs-build check gating every screen.',
+    tech: ['.NET', 'React Native', 'AI agent supervision', 'Design conformance', 'Azure DevOps'],
+    caseStudyHtml: {
+      problem:
+        'Rebuilding a live payments core — gateway, issuing and acquiring — without losing the behaviour the existing system already encodes, while the interface specification itself is still moving. Conventional handoff (design → ticket → build → review) cannot keep a surface this large in step with a spec that changes underneath it.',
+      architecture:
+        'The design project is the specification rather than a reference: screens are ported into the web application and re-synced as the design evolves, and a design-vs-build visual check gates each screen before it can merge. Delivery runs as successive conformance waves with periodic resync rounds instead of one big-bang cutover, so the rebuild converges on the spec in measurable increments. AI coding agents prepare the changes; I run the CI-equivalent gates and decide what ships. Money-movement features stay behind flags until finance and security sign off, and every pull request is reviewed automatically against a standing policy, with the reviewers themselves audited weekly.',
+      outcome:
+        'Eight conformance waves and three resync rounds merged to date. A parallel partner programme for mobile wallet and online banking — individual, corporate and merchant — runs to a fixed acceptance window against a bilingual PMO control tool I designed: critical-path Gantt, escalation tracking and client reporting in English and Spanish.'
+    }
+  },
   {
     name: 'Wa! — MI Wallet',
     badge: 'CARD ISSUING · PANAMA',
@@ -156,7 +173,7 @@ export const skillGroups = [
   { title: 'Architecture', body: 'Clean Architecture · Domain-Driven Design · Modular Monolith · Microservices · REST', wide: false },
   { title: 'Data & DevOps', body: 'SQL Server · MongoDB · Azure DevOps CI/CD · Git · Production support', wide: false },
   { title: 'Payments & Compliance', body: 'PCI DSS–scoped engineering · secure card-data handling · card-network integrations (Mastercard, VISA, AMEX, CLAVE) · transaction processing, clearing & settlement', wide: false },
-  { title: 'AI Engineering ▲ growing', body: 'LLM / RAG integration · AI-assisted development · Claude & OpenAI APIs · agentic workflows · .NET Aspire', wide: false }
+  { title: 'AI Engineering', body: 'Supervising AI coding agents in production delivery · LLM / RAG integration · agentic workflows · Claude & OpenAI APIs · AI-assisted development · .NET Aspire', wide: false }
 ];
 
 export interface ArchiveProject {
